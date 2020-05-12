@@ -8,6 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class YahooSearchMain {
 	
@@ -19,14 +20,14 @@ public class YahooSearchMain {
 		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(30,  TimeUnit.SECONDS);
 		driver.get("http://www.yahoo.com");
-		WebElement searchBox = driver.findElement(By.id("uh-search-box"));
-		WebElement searchButton = driver.findElement(By.id("uh-search-button"));
+		WebElement searchBox = driver.findElement(By.id("header-search-input")); //id="header-search-input"
+		WebElement searchButton = driver.findElement(By.id("header-desktop-search-button")); //id="header-desktop-search-button"
 		
 		searchBox.clear();
 		searchBox.sendKeys("Selenium");
 		searchButton.click();
 		
-		WebElement seleniumLink = driver.findElement(By.linkText("Selenium - Web Browser Automation"));
+		WebElement seleniumLink = driver.findElement(By.linkText("Selenium"));
 		seleniumLink.click();
 		
 		ArrayList<String> windowIds = new ArrayList<String>(driver.getWindowHandles());
